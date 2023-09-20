@@ -1,0 +1,303 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    width: 1320px;
+}
+
+header, section{
+    display: flex;
+    justify-content: center;
+}
+
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 45px;
+}
+
+.logoTitle{
+    margin-left: 10px;
+}
+
+.logoTitle p{
+    font-size: 16px;
+    color: #1B223C;
+    font-weight: 500;
+}
+
+/* menu */
+
+.menu{
+    display: flex;
+}
+
+.menu li{
+    list-style: none;
+}
+
+.menu li a{
+    margin-left: 28px;
+    color: #1B223C;
+    text-decoration: none;
+    transition: .4s;
+}
+
+.menu li a:hover{
+    color: #4E74FF;
+}
+
+
+/* section: sectionCalculator */
+
+.sectionCalculator{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 0 0;
+}
+
+.calculatorContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.calc{
+    width: 580px;
+    padding: 32px 24px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+}
+
+.calcText{
+    text-align: center;
+}
+
+.calcText h2{
+    font-size: 24px;
+    color: #1B223C;
+}
+
+.calcText p{
+    color: #666;
+    font-size: 14px;
+    margin: 10px 0 0 0;
+}
+
+.calcForm{
+    margin: 25px 0 0 0;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    padding: 0 24px 24px;
+}
+
+.formLabel{
+    display: block;
+    margin-top: 18px;
+    font-size: 14px;
+    width: 100%;
+    color: #666;
+}
+
+.formLabel p{
+    color: #666;
+}
+
+.formLabel input{
+    width: calc(100% - 20px);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 14px 10px;    
+    margin-top: 8px;
+    outline: none;
+}
+
+select, input{
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 14px 10px;    
+    margin-top: 8px;
+    outline: none;
+    color: #666;
+}
+
+
+
+
+/* calcDisplay */
+
+.calcDisplay{
+    width: 280px;
+    padding: 32px 24px;
+    border: 1px solid #ddd;
+    background: #4E74FF;
+    border-radius: 16px;
+    margin-left: 20px;
+    color: #fff;
+}
+
+.displayText{
+    text-align: center;
+}
+
+.displayText h2{
+    font-size: 20px;
+}
+
+.displayText p{
+    font-size: 14px;
+}
+
+.displayContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.displayBlock{
+    text-align: center;
+    width: 95%;
+    border-radius: 10px;
+    background: #5F81FF;
+    cursor: pointer;
+    padding: 18px 0;
+    margin: 15px 0 0 0;
+    transition: .4s;
+}
+
+.displayBlock p{
+    font-size: 14px;
+}
+
+.displayBlock h2{
+    font-size: 20px;
+}
+
+.displayBlock:hover{
+    background: #7f9bff;
+}
+
+.displayHr{
+    width: 95%;
+    height: 1px;
+    background: #5F81FF;
+    margin: 25px 0 0 0;
+}
+
+.displayFooter{
+    text-align: center;
+    font-size: 22px;
+    margin: 20px 0 0 0;
+}
+
+
+
+
+
+
+
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 0;
+    margin: 20px 0 0 0;
+}
+
+tBody tr:nth-child(odd){
+    background: #F9FBFF;
+}
+
+tBody tr:hover{
+    background: #f1f6ff;
+}
+
+
+thead tr td, tbody tr td{
+    padding: 10px 5px;
+    border: none;
+    text-align: center;
+}
+
+thead a{
+    display: block;
+    color: #666;
+    font-size: 14px;
+    padding: 10px 0;
+    font-weight: unset;
+}
+
+tbody td a{
+    color: #666;
+}
+
+.panel{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.panelList{
+    width: 48%;
+    margin: 25px 0 0 0;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 10px;
+}
+
+.panelList h2{
+    font-size: 18px;
+    color: #1B223C;
+    margin: 20px 0 0 0;
+}
+
+.btn{
+    border: 0px;
+    margin: 10px 0 0 0;
+    display: inline-block;
+    background: #4E74FF;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 14px 28px;
+    transition: .4s;
+}
+
+.btn:hover{
+    background: #5F81FF;
+}
+
+.form{
+    margin: 20px 0 0 0;
+}
+
+.back{
+    text-decoration: none;
+    color: #666;
+    margin-left: 10px;
+}
