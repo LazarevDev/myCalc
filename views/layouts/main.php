@@ -42,10 +42,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
             <ul class="menu">
                 <li><a href="index.php?r=site/index">Главная</a></li>
-                <li><a href="index.php?r=main/index">Калькулятор</a></li>
                 <li><a href="">О нас</a></li>
                 <li><a href="">Помощь</a></li>
-                <li><a href="index.php?r=panel/index">Админка</a></li>
             </ul>
         </div>
     </div>

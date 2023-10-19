@@ -8,17 +8,17 @@ use yii\db\ActiveRecord;
 /**
  * ContactForm is the model behind the contact form.
  */
-class Calc extends ActiveRecord 
+class Prices extends ActiveRecord 
 {
     public static function tableName()
     {
-        return 'calc';
+        return 'prices';
     }
 
     public function rules()
     {
         return [
-            [['tonnage', 'type', 'month'], 'string'],
+            [['month_id', 'tonnage_id', 'raw_type_id', 'price'], 'integer'],
         ];
     }
 
@@ -26,9 +26,9 @@ class Calc extends ActiveRecord
     public function attributeLabels(): array
     {
         return [
-            'type' => 'Тип',
-            'month' => 'Месяц',
-            'tonnage' => 'Тоннаж',
+            'month_id' => 'Месяц',
+            'tonnage_id' => 'Тоннаж',
+            'raw_type_id' => 'Тип',
         ];
     }
 

@@ -1,48 +1,88 @@
-<?php
+<?
 
-/** @var yii\web\View $this */
+// use yii\bootstrap\ActiveForm;
 use yii\widgets\ActiveForm;
-$this->title = 'My Yii Application';
+use yii\helpers\Html;
+use yii\widgets\Pjax;
 
-use app\models\Calc;
-$model = new Calc();
+use app\models\Months;
+use app\models\Tonnages;
+use app\models\RawTypes;
+
+
 ?>
+<section class="sectionCalculator">
+    <div class="container">
+        <?php Pjax::begin() ?>
+            <div class="calculatorContainer">
+                <div class="calc">
+                    <div class="calcText">
+                        <h2>Калькулятор доставки</h2>
 
-Главная страница
+                        <p>Мы предлагаем современное решение для расчета стоимости наших услуг доставки. Теперь любой клиент с договором или без него, может в течение всего 1 минуты узнать стоимость доставки по любому региону России</p>
+                    </div>
+                        <?php $form = ActiveForm::begin([
+                            'options' => [
+                                'class' => 'form-horizontal',
+                                'data-pjax' => true,
+                            ],
+                        ]); ?>
+                
+                            <?= $form->field($model, 'month_id', ['options' => ['class' => 'formLabel']])
+                                ->dropDownList(Months::getListForSelect(), 
+                                ['prompt' => 'Выберите месяц...', 'id' => 'monthInput']); ?>
 
-<?php $form = ActiveForm::begin(['method' => 'post']); ?>
+                            <?= $form->field($model, 'raw_type_id', ['options' => ['class' => 'formLabel']])
+                                    ->dropDownList(RawTypes::getListForSelect(), 
+                                    ['prompt' => 'Выберите тип...', 'id' => 'typeInput']); ?>
 
+                            <?= $form->field($model, 'tonnage_id', ['options' => ['class' => 'formLabel']])
+                                    ->dropDownList(Tonnages::getListForSelect(), 
+                                    ['prompt' => 'Выберите тип...', 'id' => 'tonnageInput']); ?>
 
-<button type="submit">Отправить</button>
+                            <?= Html::submitButton('Рассчитать', ['class' => 'btn btn-info']) ?>
 
-<?php ActiveForm::end(); ?>
+                        <?php ActiveForm::end(); ?>
+                </div>
+    
+                <div class="calcDisplay">
+                    <div class="displayText">
+                        <h2>Итого</h2>
+                        <p>Расчеты доставки</p>
+                    </div>
 
+                    <div class="displayContainer">
+                        <div class="displayBlock">
+                            <p>Выбранный месяц</p>
+                            <h3 id="month">-</h3>
+                        </div>
 
-<?= $form->field($model, 'month', ['options' => ['class' => 'formLabel']])->dropDownList([
-    '1' => 'Январь',
-    '2' => 'Февраль',
-    '3' => 'Март',
-    '4' => 'Апрель',
-    '5' => 'Май',
-    '6' => 'Июнь',
-    '7' => 'Июль',
-    '8' => 'Август',
-    '9' => 'Сентябрь',
-    '10' => 'Октябрь',
-    '11' => 'Ноябрь',
-    '12' => 'Декабрь',
-], ['prompt' => 'Выберите месяц...', 'id' => 'input']); ?>
+                        <div class="displayBlock">
+                            <p>Тип сырья</p>
+                            <h3 id="type">-</h3>
+                        </div>
 
+                        <div class="displayBlock">
+                            <p>Тоннаж</p>
+                            <h3 id="tonnage">-</h3>
+                        </div>
+                    </div>
 
-<script type="text/javascript">
- document.getElementById("input").addEventListener("change", function() {
-  const selectedValue = this.value;
-  console.log(selectedValue);
-  document.getElementById("selected-value-block").innerText = selectedValue;
-});
-</script>
+                    <div class="center">
+                        <div class="displayHr"></div>
+                    </div>
 
+                    <div class="displayFooter">
+                        <h3>
+                            <?php if(!empty($calculation->price)){ 
+                                echo number_format($calculation->price)."₽"; 
+                            }?>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        <?php Pjax::end() ?>
+    </div>
+</section>
 
-<div id="selected-value-block">
-    <p>das</p>
-</div>
+<script src="js/index.js"></script>

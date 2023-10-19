@@ -8,36 +8,38 @@ use yii\db\ActiveRecord;
 /**
  * ContactForm is the model behind the contact form.
  */
-class Tonnage extends ActiveRecord 
-{
+class Months extends ActiveRecord{
     public static function tableName()
     {
-        return 'tonnage';
+        return 'months';
     }
 
     public function rules()
     {
         return [
-            [['count'], 'integer'],
+            [['month'], 'string'],
+            [['percent'], 'integer'],
         ];
     }
-
     
     public function attributeLabels(): array
     {
         return [
-            'count' => 'Кол-во тонн',
+            'name' => 'Месяц',
         ];
     }
 
+
     static function getListForSelect(){
+
         $model = self::find()->all();
 
         foreach($model as $value){
-            $array[$value->count] = $value->count;
+            $array[$value->id] = $value->name;
         }
 
         return $array;
+
     }
 
 }

@@ -8,18 +8,18 @@ use yii\db\ActiveRecord;
 /**
  * ContactForm is the model behind the contact form.
  */
-class Type extends ActiveRecord 
+class RawTypes extends ActiveRecord 
 {
     public static function tableName()
     {
-        return 'type';
+        return 'raw_types';
     }
 
     public function rules()
     {
         return [
             [['name'], 'string'],
-            [['price'], 'integer'],
+            [['id'], 'integer'],
         ];
     }
     
@@ -27,7 +27,6 @@ class Type extends ActiveRecord
     {
         return [
             'name' => 'Название',
-            'price' => 'Цена за 1 тонну',
         ];
     }
 
@@ -36,7 +35,7 @@ class Type extends ActiveRecord
         $model = self::find()->all();
 
         foreach($model as $value){
-            $array[$value->name] = $value->name;
+            $array[$value->id] = $value->name;
         }
 
         return $array;
